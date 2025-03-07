@@ -1,0 +1,5 @@
+<form method="etudiant">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ajouter</button>
+</form>

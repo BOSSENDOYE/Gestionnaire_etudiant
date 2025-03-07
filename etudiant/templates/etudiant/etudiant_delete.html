@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer Étudiant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn + .btn {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <p>Voulez-vous vraiment supprimer {{ etudiant.nom }} {{ etudiant.prenom }} ?</p>
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            <a href="{% url 'etudiant_list' %}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</body>
+</html>
